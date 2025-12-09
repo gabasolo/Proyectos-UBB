@@ -19,7 +19,7 @@ const DOM_ELEMENTS = {
 };
 
 const CONSTANTS = {
-    API_URL: '/api/hotspots', // URL de su API Back-end. Debe apuntar a su servidor real.
+    API_URL: 'hotspots.json', // URL de su API Back-end. Debe apuntar a su servidor real.
     TIPO_PROYECTO_OPTIONS: ['Proyecto', 'Obra', 'Recepcionado'],
     ESTADO_OPTIONS: ['Proyecto', 'Bases', 'Licitación', 'Licitación sin Adjudicar', 'Adjudicación - Contrato', 'Construcción', 'Recepción Provisoria', 'Recepción Definitiva', 'Revisión Externa', 'Paralizada'],
     COLOR_MAP: {
