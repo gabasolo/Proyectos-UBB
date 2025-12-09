@@ -23,92 +23,84 @@
 
     <div id="floating-panel" class="floating-panel">
         <div class="admin-btn-container">
-            <button id="show-buttons-btn" class="report-btn bg-gray-600 hover:bg-gray-700">
-                Mostrar opciones de gestión
-            </button>
-            
-            <div id="hidden-buttons-container" class="hidden space-y-3">
-                
-                <div class="flex space-x-2">
-                    <button id="admin-btn" class="report-btn bg-gray-200 hover:bg-gray-300 flex-1">Editar</button>
-                    <button id="report-btn" class="report-btn bg-green-500 hover:bg-green-600 flex-1">Reporte</button>
-                    <button id="licitacion-btn" class="report-btn bg-yellow-500 hover:bg-yellow-600 flex-1">Licitaciones</button>
-                </div>
-                
-                <div class="bg-white p-3 rounded-lg shadow space-y-3">
-                    <h3 class="text-sm font-bold text-gray-700">Filtros</h3>
-                    
-                    <div class="flex items-center justify-between text-xs">
-                        <span class="font-medium text-gray-900">Recepcionado:</span>
-                        <div class="flex items-center space-x-4">
-                            <div class="flex items-center">
-                                <input id="filter-recepcionado-si" type="checkbox" value="Sí" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked>
-                                <label for="filter-recepcionado-si" class="ml-2 block text-sm text-gray-900">Sí</label>
-                            </div>
-                            <div class="flex items-center">
-                                <input id="filter-recepcionado-no" type="checkbox" value="No" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked>
-                                <label for="filter-recepcionado-no" class="ml-2 block text-sm text-gray-900">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="estudio-suelo-filter" class="flex items-center justify-between text-xs hidden">
-                        <span class="font-medium text-gray-900">Estudio Suelo:</span>
-                        <div class="flex items-center space-x-4">
-                            <div class="flex items-center">
-                                <input id="filter-suelo-si" type="checkbox" value="Sí" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked>
-                                <label for="filter-suelo-si" class="ml-2 block text-sm text-gray-900">Sí</label>
-                            </div>
-                            <div class="flex items-center">
-                                <input id="filter-suelo-no" type="checkbox" value="No" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked>
-                                <label for="filter-suelo-no" class="ml-2 block text-sm text-gray-900">No</label>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center justify-between text-xs space-x-2">
-                        <span class="font-medium text-gray-900">Año Inicio:</span>
-                        <input id="year-filter-start" type="number" placeholder="Desde" class="w-20 p-1 border rounded text-right">
-                        <span>-</span>
-                        <input id="year-filter-end" type="number" placeholder="Hasta" class="w-20 p-1 border rounded text-right">
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div id="leyenda-proyecto" class="leyenda hidden">
-                <h3 class="font-bold text-sm mb-2 text-gray-700">Leyenda:</h3>
-                <div class="flex items-center space-x-2 mb-1">
-                    <span class="hotspot-legend hotspot-proyecto"></span>
-                    <span class="text-xs text-gray-700">Proyecto</span>
-                </div>
-                <div class="flex items-center space-x-2 mb-1">
-                    <span class="hotspot-legend hotspot-obra"></span>
-                    <span class="text-xs text-gray-700">Obra</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <span class="hotspot-legend hotspot-recepcionado"></span>
-                    <span class="text-xs text-gray-700">Recepcionado</span>
-                </div>
-            </div>
-            
+            <button id="show-buttons-btn" class="report-btn bg-gray-600 hover:bg-gray-700">Mostrar opciones de gestión</button>
         </div>
-    </div>
-    
-    <div id="main-modal" class="modal fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 hidden">
-        <div id="modal-content" class="modal-content overflow-y-auto w-full max-h-full">
+        <div id="hidden-buttons-container" class="hidden flex flex-col items-end gap-2">
+            <div class="admin-btn-container">
+                <button id="admin-btn" class="report-btn bg-gray-200 text-gray-700 hover:bg-gray-300">Editar</button>
             </div>
-    </div>
-
+            <div class="flex flex-col space-y-2 w-full">
+                <button id="licitacion-btn" class="report-btn bg-yellow-500 hover:bg-yellow-600">Licitaciones</button> 
+                <button id="report-btn" class="report-btn">Reporte</button>
+                <a href="Cuadro Superficies.pdf" target="_blank" class="report-btn">Cuadro de superficie</a>
+                <a href="https://uchilefau.sharepoint.com/:f:/r/sites/DFDAcademic_TeamSite/Shared%20Documents/Mapas%20Tem%C3%A1ticos?csf=1&web=1&e=G9e36F" target="_blank" class="report-btn">Edificios</a>
+            </div>
+        </div>
+        <div id="floating-legend" class="legend-container p-4">
+            <div class="flex items-center mb-2 hidden" id="leyenda-proyecto">
+                <div class="w-6 h-6 rounded-full hotspot-proyecto mr-2"></div>
+                <span class="text-gray-700">Proyecto</span>
+            </div>
+            <div class="flex items-center mb-2">
+                <div class="w-6 h-6 rounded-full hotspot-obra mr-2"></div>
+                <span class="text-gray-700">Obra</span>
+            </div>
+            <div class="flex items-center">
+                <div class="w-6 h-6 rounded-full hotspot-recepcionado mr-2"></div>
+                <span class="text-gray-700">Recepcionado</span>
+            </div>
+        </div>
+        <div class="year-filter-container">
+            <label class="block text-sm font-medium text-gray-700 mb-1 ml-1">Filtrar por rango de años:</label>
+            <div class="flex space-x-2">
+                <input type="number" id="year-filter-start" placeholder="Año inicio" class="w-1/2 p-2 border border-gray-300 rounded-md shadow-sm text-center" min="1900" max="2100">
+                <input type="number" id="year-filter-end" placeholder="Año fin" class="w-1/2 p-2 border border-gray-300 rounded-md shadow-sm text-center" min="1900" max="2100">
+            </div>
+            </div>
+         <div class="legend-container px-4 py-2 mb-2">
+            <div class="flex items-center justify-between w-full">
+                <label class="text-gray-700">Recepcionado</label>
+                <div id="reception-filter-container" class="flex items-center space-x-4">
+                    <div class="flex items-center w-12 justify-end">
+                        <input id="filter-recepcionado-si" type="checkbox" value="Sí" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked>
+                        <label for="filter-recepcionado-si" class="ml-2 block text-sm text-gray-900">Sí</label>
+                    </div>
+                    <div class="flex items-center w-12 justify-end">
+                        <input id="filter-recepcionado-no" type="checkbox" value="No" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked>
+                        <label for="filter-recepcionado-no" class="ml-2 block text-sm text-gray-900">No</label>
+                    </div>
+                </div>
+            </div>
+             </div>
+        <div id="estudio-suelo-filter" class="legend-container px-4 py-2 hidden">
+            <div class="flex items-center justify-between w-full">
+                <label class="text-gray-700 whitespace-nowrap">Estudio Suelo</label>
+                <div id="soil-filter-container" class="flex items-center space-x-4">
+                    <div class="flex items-center w-12 justify-end">
+                        <input id="filter-suelo-si" type="checkbox" value="Sí" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked>
+                        <label for="filter-suelo-si" class="ml-2 block text-sm text-gray-900">Sí</label>
+                    </div>
+                    <div class="flex items-center w-12 justify-end">
+                        <input id="filter-suelo-no" type="checkbox" value="No" class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" checked>
+                        <label for="filter-suelo-no" class="ml-2 block text-sm text-gray-900">No</label>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
     <div class="watermark">
         <svg viewBox="0 0 100 100">
             <path id="circlePath" fill="none" stroke="none" d="M 50, 50 m -20, 0 a 20,20 0 1,1 40,0 a 20,20 0 1,1 -40,0" />
             <text class="watermark-text">
                 <textPath href="#circlePath" startOffset="50%" text-anchor="middle">
-                    GAG-DPC-UBB * GAG
+                    GAG-DPC-UBB * GAG-DPC-UBB *
                 </textPath>
             </text>
         </svg>
+    </div>
+    <div id="main-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4">
+        <div id="modal-content" class="modal-content w-full max-w-6xl max-h-[90vh] overflow-y-auto">
+        </div>
     </div>
 
     <script src="app.js"></script>
