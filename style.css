@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
+}
+
+.image-container {
+    position: relative;
+    cursor: crosshair;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    max-height: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hotspot-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hotspot {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+}
+
+.hotspot:hover {
+    transform: translate(-50%, -50%) scale(1.25);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+    z-index: 1000;
+}
+
+.hotspot-proyecto {
+    background-color: #d41c1c;
+}
+
+.hotspot-obra {
+    background-color: #f59e0b;
+}
+
+.hotspot-recepcionado {
+    background-color: #3b82f6;
+}
+
+/* AGREGADO: Estilo para la letra de estado */
+.hotspot-state-letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    font-size: 14px; 
+    font-weight: 700;
+    line-height: 1;
+    z-index: 15; 
+    text-align: center;
+    pointer-events: none;
+}
+/* FIN AGREGADO */
+
+.hotspot-tooltip {
+    position: absolute;
+    top: -40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 20;
+}
+
+.hotspot-obra:hover .hotspot-tooltip,
+.hotspot-recepcionado:hover .hotspot-tooltip {
+    min-width: 200px;
+    white-space: normal;
+    top: -150px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hotspot:hover .hotspot-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hotspot-proyecto + .hotspot-tooltip {
+    top: -40px; 
+    min-width: 0;
+    padding: 4px 8px;
+}
+
+.hotspot-tooltip h3 {
+    margin: 0;
+    font-size: 85%;
+    white-space: nowrap; 
+}
+
+.project-tooltip-image {
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.hotspot:hover .hotspot-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.floating-panel {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.report-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); 
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+    text-align: center;
+    width: 250px;
+    display: inline-block;
+}
+
+.report-btn:hover {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+}
+
+.legend-container {
+    width: 250px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 10px 20px -5px rgba(0, 0, 0, 0.15); 
+}
+
+.admin-btn-container {
+    width: 250px;
+}
+
+.year-filter-container {
+    width: 250px; 
+    padding: 0.75rem 0; 
+}
+
+.floating-title-panel {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4), 0 5px 10px rgba(0, 0, 0, 0.2);
+    max-width: fit-content;
+    white-space: nowrap;
+}
+
+.modal-header-proyecto { background-color: #d41c1c; }
+.modal-header-obra { background-color: #f59e0b; }
+.modal-header-recepcionado { background-color: #3b82f6; }
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    max-height: 90vh;
+    max-width: 6xl; 
+}
+
+.report-table-header th {
+    background-color: #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.report-table-container {
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.watermark {
+    position: absolute;
+    bottom: 4rem;
+    right: 3rem;
+    z-index: 10;
+    width: 160px;
+    height: 160px;
+}
+
+.watermark-text {
+    fill: rgba(0, 0, 0, 0.2);
+    font-size: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
+}
+
+.data-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+}
+
+.data-grid-item {
+    border-right: 1px solid #e5e7eb;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.data-grid-item:last-child {
+    border-right: none;
+}
